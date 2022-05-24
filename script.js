@@ -1,7 +1,7 @@
 var happiness = 100;
 var hunger = 100;
 var money = 0;
-var moneyclick = 1;
+var moneyclick = 3;
 var alive = true;
 var floppafood = 0;
 
