@@ -2,19 +2,28 @@
 <html>
   <head>
     <h1>Raise a Floppa</h1>
-    <p>The Roblox game by <strong>ShiiroShogun</strong> but on a website</p><br>
+    <p>The Roblox game by <strong>ShiiroShogun</strong> but on a website</p>
     <p>This website is made for fun and learning purposes only.</p>
-    <link rel="stylesheet" type="text/css" href="https://supern3on.github.io/raisefloppa/style.css">
+    <p>Click Floppa for Money</p>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <script src="https://supern3on.github.io/script.js"></script>
+    <script src="script.js"></script>
     <br><br>
+    <strong>Money</strong>
+    <p id="money">0</p>
+    <button onclick="moneyclik()">Click Floppa</button><br><br>
     <strong>Floppa Mood</strong>
-    <p id="mood">100</p>
-    <button>Pet Floppa (+5 Mood)</button>
-    <br>
+    <p id="happiness">100</p>
+    <button onclick="petfloppa()">Pet Floppa (+5 Mood)</button>
+    <br><br>
     <strong>Floppa Hunger</strong>
     <p id="hunger">100</p>
-    <i>To feed Floppa, buy Floppa Food from the shop and then Floppa will eat it when his hunger is 30.</i>
+    <i>To feed Floppa, buy Floppa Food from the shop and then Floppa will eat it when his hunger is 30.</i><br><br>
+    <div id="shop">
+        <strong>Shop</strong>
+        <p>Floppa Food</p>
+        <button>Purchase</button>
+    </div>
   </body>
 </html>
