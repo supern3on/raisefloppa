@@ -37,7 +37,7 @@ setInterval(function() {
 
 
 function petfloppa() {
-    if (happiness + 5 <= 100 && alive == true) {
+    if (happiness + 5 < 101 && alive == true) {
         happiness = happiness + 5;
         document.getElementById("happiness").innerHTML = happiness;
         document.getElementById("bruh").innerHTML = "";
