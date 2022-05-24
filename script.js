@@ -1,5 +1,5 @@
 var happiness = 100;
-var hunger = 39;
+var hunger = 100;
 var money = 0;
 var moneyclick = 1;
 var alive = true;
