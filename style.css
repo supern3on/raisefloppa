@@ -1,4 +1,8 @@
 body {
-  background-color: #111111;
-  color: #EEEEEE;
+    background-color: #111111;
+    color: #EEEEEE;
+}
+#shop {
+   background-color: A9A9A9; 
+   color: #111111;
 }
