@@ -6,7 +6,9 @@ var alive = true;
 var floppafood = 0;
 
 setInterval(function() {
-    if (happiness > 0 && alive == true) {
+    if (happiness < 26) {
+        moneyclick = 1;
+    } else if (happiness > 0 && alive == true) {
         happiness = --happiness;
         document.getElementById("happiness").innerHTML = happiness;
     } else {
