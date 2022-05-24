@@ -1,16 +1,18 @@
 var happiness = 100;
 var hunger = 100;
 var money = 0;
-var moneyclick = 3;
+var moneyclick = 5;
 var alive = true;
 var floppafood = 0;
 
 setInterval(function() {
     if (happiness < 26) {
-        moneyclick = 1;
+        moneyclick = 2;
+        document.getElementById("bruh").innerHTML = "Floppa is not happy";
     } else if (happiness > 0 && alive == true) {
         happiness = --happiness;
         document.getElementById("happiness").innerHTML = happiness;
+        document.getElementById("bruh").innerHTML = "";
     } else {
         console.log('no')
     }
@@ -18,7 +20,7 @@ setInterval(function() {
 setInterval(function() {
     if (hunger < 31 && alive == true && floppafood > 0) {
         hunger = 100;
-        floppafood = 0;
+        floppafood = --floppafood;
         document.getElementById("hunger").innerHTML = hunger;
         document.getElementById("floppafood").innerHTML = floppafood;
 
@@ -38,6 +40,7 @@ function petfloppa() {
     if (happiness + 5 <= 100 && alive == true) {
         happiness = happiness + 5;
         document.getElementById("happiness").innerHTML = happiness;
+        document.getElementById("bruh").innerHTML = "";
     } else {
         console.log("no")
     }
