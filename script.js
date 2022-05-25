@@ -1,63 +1,82 @@
+var hunger = 30;
 var happiness = 100;
-var hunger = 100;
-var money = 0;
-var moneyclick = 5;
+var money = 50;
+var moneyclick = 4;
 var alive = true;
+var petdb = true;
+var moneydb = true;
 var floppafood = 0;
-
+var FfoodDB = true;
+var bowlwithfood = true;
+var zerofoodbutTrue = true; 
+/* hunger */
 setInterval(function() {
-    if (happiness < 26) {
-        moneyclick = 2;
-        document.getElementById("bruh").innerHTML = "Floppa is not happy";
-    } else if (happiness > 0 && alive == true) {
-        happiness = --happiness;
-        document.getElementById("happiness").innerHTML = happiness;
-        document.getElementById("bruh").innerHTML = "";
-    } else {
-        console.log('no')
-    }
-}, 5000)
-setInterval(function() {
-    if (hunger < 31 && alive == true && floppafood > 0) {
+    if (alive == true && hunger <= 25 && zerofoodbutTrue == true || alive == true && bowlwithfood == true && hunger <= 25) {
         hunger = 100;
-        floppafood = --floppafood;
-        document.getElementById("hunger").innerHTML = hunger;
-        document.getElementById("floppafood").innerHTML = floppafood;
-
-    } else if (hunger > 0 && alive == true) {
+        document.getElementById("hunger").innerHTML = "Hunger: " + hunger;
+        bowlwithfood = false;
+        if (zerofoodbutTrue == true) {zerofoodbutTrue = false} 
+        else if (zerofoodbutTrue == false) {floppafood = --floppafood;}
+        document.getElementById("fFoodtext").innerHTML = floppafood;
+        document.getElementById("bowl").innerHTML = "Empty (to fill bowl buy floppa food)"
+    } else if (alive == true && hunger - 1 >= 0) {
         hunger = --hunger;
-        document.getElementById("hunger").innerHTML = hunger;
-    } else if (hunger == 0) {
+        document.getElementById("hunger").innerHTML = "Hunger: " + hunger;
+    } else if (hunger == 0 && alive == true) {
         alive = false;
-        happiness = 0
-        document.getElementById("happiness").innerHTML = happiness;
+        console.log('floppa is ded :(')
+        document.getElementById("bruh").innerHTML = "your floppa died bruh";
+        document.getElementById("money").innerHTML = "you have no money because u are evil >:("
     }
-}, 3000)
+}, 1250)
+/* happiness */
+setInterval(function() {
+    if (alive == true && happiness - 1 >= 0) {
+        happiness = --happiness;
+        document.getElementById("happiness").innerHTML = "Happiness: " + happiness;
+    } else if (happiness <= 25 && alive == true) {
+        moneyclick == 1;
+        document.getElementById("bruh").innerHTML = "floppa is angry >:("
+    }
+}, 2500)
 
-
-
-function petfloppa() {
-    if (happiness + 5 < 101 && alive == true) {
+function petFloppa() {
+    if (alive == true && happiness + 5 <= 100 && petdb == true) {
         happiness = happiness + 5;
-        document.getElementById("happiness").innerHTML = happiness;
-        document.getElementById("bruh").innerHTML = "";
-    } else {
-        console.log("no")
+        document.getElementById("happiness").innerHTML = "Happiness: " + happiness;
+        petdb = false;
+        setTimeout(function() {petdb = true;}, 2500)
+    } else if (happiness + 5 > 100 && alive == true && petdb == true) {
+        happiness = 100;
+        document.getElementById("happiness").innerHTML = "Happiness: " + happiness;
+        petdb = false;
+        setTimeout(function() {petdb = true;}, 2500)
     }
 }
-function moneyclik() {
-    if (alive == true) {
+
+function clickFloppa() {
+    if (alive == true && moneydb == true) {
         money = money + moneyclick;
-        document.getElementById("money").innerHTML = money
+        moneydb = false;
+        document.getElementById("money").innerHTML = "Money: " + money;
+        setTimeout(function() {moneydb = true;}, 0500)
+    } else {console.log('no')}
+}
+
+function purchaseFood() {
+    if (alive == true && bowlwithfood == false && FfoodDB == true && money - 50 >= 0) {
+        money = money - 50;
+        document.getElementById("money").innerHTML = "Money: " + money;
+        floppafood = ++floppafood;
+        document.getElementById("fFoodtext").innerHTML = "You have: " + floppafood;
+        FfoodDB = false;
+        setTimeout(function() {FfoodDB = true;}, 0500)
     }
 }
-function purchaseFood() {
-    if (money > -1 && money - 50 > -1 && alive == true) {
-        money = money - 50;
-        floppafood = floppafood + 1;
-        document.getElementById("floppafood").innerHTML = floppafood;
-        document.getElementById("money").innerHTML = money;
-    } else {
-        console.log("no")
+function fillBowl() {
+    if (alive == true && floppafood >= 1 && bowlwithfood == false) {
+        bowlwithfood == true;
+        document.getElementById("bowl").innerHTML = "Has food";
+        floppafood = --floppafood;
     }
 }
