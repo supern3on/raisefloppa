@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <h1>Raise a Floppa</h1>
-    <p>The Roblox game by <strong>ShiiroShogun</strong> but on a website</p>
-    <p>This website is made for fun only.</p>
-    <p>Click Floppa for Money</p>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <script src="script.js"></script>
-    <br><br>
-    <strong>Money</strong>
-    <p id="money">0</p>
-    <button onclick="moneyclik()">Click Floppa</button><br><br>
-    <strong>Floppa Happiness</strong>
-    <p id="happiness">100</p>
-      <p id="bruh"></p>
-    <button onclick="petfloppa()">Pet Floppa (+5 Mood)</button>
-    <br><br>
-    <strong>Floppa Hunger</strong>
-    <p id="hunger">100</p>
-    <div id="shop">
-        <strong>Shop/Inventory</strong>
-        <p>Floppa Food - <strong>$50</strong></p>
-        <p>You have:</p>
-        <p id="floppafood">0</p>
-        <i>To feed Floppa, buy Floppa Food from the shop and then Floppa will eat it when his hunger is 30.</i><br>
+<html lang="en">
+    <head>
+        <title>Raise a Floppa</title>
+        <h1>Raise a Floppa</h1>
+        <a href="https://www.roblox.com/games/9203864304/raise-a-floppa">Play Raise a Floppa (play now or walter white is coming to your house)</a>
+        <p>Original game by <a href="https://www.roblox.com/users/5755777/profile">ShiiroShogun</a></p>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <i>click the floppa to get money</i>
+        <p id="money">Money: 0</p>
+        <button onclick="clickFloppa()">Click Floppa</button>
+        <br><br>
+        <strong>Floppa Stats</strong>
+        <p id="bruh">floppa is alive and well :)</p>
+        <br><strong>Floppa's Food Bowl</strong><br>
+        <p id="bowl">Has food</p>
+        <button onclick="fillBowl()">Fill Bowl</button><br>
+        <p id="hunger">Hunger: 100</p>
+        <p id="happiness">Happiness: 100</p>
+        <button onclick="petFloppa()">Pet Floppa (+5 Mood)</button>
+        <script src="script.js"></script>
+        <!-- the interwebs -->
+        <br><br>
+        <strong>The Interwebs</strong>
+        <p>Floppa Food</p>
+        <p id="fFoodtext">You have: 0</p>
         <button onclick="purchaseFood()">Purchase</button>
-    </div>
-  </body>
+    </body>
 </html>
