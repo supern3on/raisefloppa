@@ -3,29 +3,32 @@
     <head>
         <title>Raise a Floppa</title>
         <h1>Raise a Floppa</h1>
-        <a href="https://www.roblox.com/games/9203864304/raise-a-floppa">Play Raise a Floppa (play now or walter white is coming to your house)</a>
-        <p>Original game by <a href="https://www.roblox.com/users/5755777/profile">ShiiroShogun</a></p>
+        <a href="https://www.roblox.com/users/5755777/profile">The Original Creator of Raise a Floppa</a><br>
+        <a href="https://www.roblox.com/games/9203864304/raise-a-floppa">Original Raise a Floppa (play or else walter comes to your house)</a><br><br>
         <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
     </head>
     <body>
-        <i>click the floppa to get money</i>
-        <p id="money">Money: 0</p>
-        <button onclick="clickFloppa()">Click Floppa</button>
-        <br><br>
-        <strong>Floppa Stats</strong>
-        <p id="bruh">floppa is alive and well :)</p>
-        <br><strong>Floppa's Food Bowl</strong><br>
-        <p id="bowl">Has food</p>
-        <button onclick="fillBowl()">Fill Bowl</button><br>
-        <p id="hunger">Hunger: 100</p>
-        <p id="happiness">Happiness: 100</p>
-        <button onclick="petFloppa()">Pet Floppa (+5 Mood)</button>
         <script src="script.js"></script>
-        <!-- the interwebs -->
-        <br><br>
-        <strong>The Interwebs</strong>
-        <p>Floppa Food</p>
-        <p id="fFoodtext">You have: 0</p>
-        <button onclick="purchaseFood()">Purchase</button>
+        <strong>Floppa</strong><br><br>
+        <p id="cash">Money: 0</p>
+        <button onclick="clickFloppa()">Click Floppa</button><br><br>
+        <strong>Floppa's Bowl</strong>
+        <p id="floppabowl">empty</p>
+        <button onclick="fillBowl()">Fill Bowl</button><br><br>
+        <strong>Floppa Stats</strong>
+        <p id="hunger">Hunger: 100</p>
+        <p id="mood">Happiness: 100</p>
+        <button onclick="petFloppa()">Pet Floppa (+5 Mood)</button><br><br>
+        <details>
+            <summary>The Interwebs/Inventory</summary>
+            <fieldset>
+                <strong>Floppa Food ($50)</strong>
+                <p id="floppafood">You have: 0</p>
+                <p><em>(Description) </em>Fill the bowl with Floppa Food</p>
+                <button onclick="purchaseFood()">Purchase</button>
+            </fieldset>
+        </details>
     </body>
 </html>
