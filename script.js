@@ -11,7 +11,7 @@ var alive = true;
 var moodDB = true;
 var food = {
     food: 0,
-    bowl: false,
+    bowl: true,
     foodDB: true
 }
 var coolhat = 0
