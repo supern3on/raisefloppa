@@ -2,7 +2,11 @@ var stats = {
     hunger: 100,
     mood: 100
 }
-var money = [0, 3, true]
+var money = {
+    click: 1,
+    cash: 0,
+    db: true
+}
 var alive = true;
 var moodDB = true;
 var food = {
@@ -10,6 +14,7 @@ var food = {
     bowl: false,
     foodDB: true
 }
+var coolhat = 0
 setInterval(function() {
     if (stats.hunger <= 35 && food.bowl == true && alive == true) {
         food.bowl = false;
@@ -25,21 +30,21 @@ setInterval(function() {
 }, 1000)
 setInterval(function() {
     if (stats.mood > 0 && alive == true) {
-        money[1] = 3;
+        if(coolhat==1){money.click=3}else{money.click=1}
         stats.mood = --stats.mood;
         document.getElementById("mood").innerHTML = "Happiness: " + stats.mood;
     } 
-    if (stats.mood <= 25 && alive == true) {
-        money[1] = 2;
+    if (stats.mood <= 25 && alive == true && money.click > 1) {
+        money.click = 1;
     }
 }, 3000)
 
 function clickFloppa() {
-    if (money[2] == true && alive == true) {
-        money[2] = false;
-        money[0] = money[0] + money[1]
-        document.getElementById("cash").innerHTML = "Money: " + money[0]
-        setTimeout(function () {money[2] = true;}, 0400)
+    if (money.db == true && alive == true) {
+        money.db = false;
+        money.cash = money.cash + money.click
+        document.getElementById("cash").innerHTML = "Money: " + money.cash
+        setTimeout(function () {money.db = true;}, 0350)
     }
 }
 
@@ -58,11 +63,11 @@ function petFloppa() {
 }
 
 function purchaseFood() {
-    if (food.foodDB == true && alive == true && money[0] - 50 >= 0) {
+    if (food.foodDB == true && alive == true && money.cash >= 50) {
         food.food = ++food.food;
-        money[0] = money[0] - 50;
+        money.cash = money.cash - 50;
         document.getElementById("floppafood").innerHTML = "You have: " + food.food;
-        document.getElementById("cash").innerHTML = "Money: " + money[0];
+        document.getElementById("cash").innerHTML = "Money: " + money.cash;
         console.log(food.food)
     }
 }
@@ -74,4 +79,13 @@ function fillBowl() {
         food.food = --food.food;
         document.getElementById("floppafood").innerHTML = "You have: " + food.food;
     } else {}
+}
+
+function purchaseHat() {
+    if (coolhat == 0 && money.cash >= 250 && alive == true) {
+        coolhat = 1;
+        money.cash = money.cash - 250
+        money.click = 3
+        document.getElementById("coolhat").innerHTML = "You have: " + coolhat 
+    }
 }
