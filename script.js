@@ -87,5 +87,6 @@ function purchaseHat() {
         money.cash = money.cash - 250
         money.click = 3
         document.getElementById("coolhat").innerHTML = "You have: " + coolhat 
+        document.getElementById("cash").innerHTML = "Money: " + money.cash
     }
 }
