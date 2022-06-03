@@ -88,5 +88,6 @@ function purchaseHat() {
         money.click = 3
         document.getElementById("coolhat").innerHTML = "You have: " + coolhat 
         document.getElementById("cash").innerHTML = "Money: " + money.cash
+        document.getElementById("hatbtn").style = "display: none;"
     }
 }
