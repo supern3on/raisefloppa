@@ -1,12 +1,15 @@
 body {
-    font-family: 'Comic Neue';
+	 font-family: -apple-system, system-ui, BlinkMacSystemFont, ui-sans-serif;
     font-size: 20px;
-    background-color: #232529;
+    background-color: #24262b;
     color: #ffffff;
 }
-a{
+a {
     color: #a9c6f0;
 }
-button {
-    font-family: 'Comic Neue';
+strong {
+	font-weight: 550;
+}
+h1 {
+	font-weight: 500;
 }
