@@ -26,6 +26,7 @@ setInterval(function() {
         document.getElementById("hunger").innerHTML = "Hunger: " + stats.hunger;
     } else if (stats.hunger == 0 && alive == true) {
         alive = false;
+        document.write("your floppa ded")
     }
 }, 1000)
 setInterval(function() {
