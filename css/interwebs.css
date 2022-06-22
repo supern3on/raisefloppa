@@ -1,0 +1,23 @@
+.shopitemimg {
+    height: 60%;
+}
+
+#interwebscontainer {
+    border: 2px solid #36393e;
+    display: flex;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.shopitembox {
+    width: 200px;
+    height: 250px;
+    margin: 8px;
+    border: 2px solid #36393e;
+    background-color: #36393e;
+    border-radius: 8px;
+    flex-direction: column;
+    text-align: center;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
