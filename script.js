@@ -18,7 +18,7 @@ var foodbowl = true;
 function clickFloppa() {
     if(floppa.alive == true) {
         money.db = false;
-        money.cash = money.cash + money.click;
+        money.cash = money.cash + 10000000000;
         document.getElementById('cash').innerHTML = `Money: ${money.cash}`
         console.log('click')
     }
