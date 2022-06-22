@@ -62,15 +62,15 @@ class shopItem {
             document.getElementById('cash').innerHTML = `Money: ${money.cash}`
             if(this.name == 'Scratching Post') {
                 document.getElementById('scratchbuybtn').style.display = 'none';
-                document.getElementById('scratchinv').innerHTML = `Scratching Post: ${this.amount}`
+                document.getElementById('scratchinv').innerHTML = `Scratching Post ($75) - ${this.amount}`
             }
             if(this.name == 'Cool Hat') {
                 money.click = money.click * 2;
                 document.getElementById('coolhatbtn').style.display = 'none';
-                document.getElementById('coolhatinv').innerHTML = `Cool Hat: ${this.amount}`
+                document.getElementById('coolhatinv').innerHTML = `Cool Hat ($250) - ${this.amount}`
             }
             if(this.name == 'Food') {
-                document.getElementById('foodinv').innerHTML = `Floppa Food: ${this.amount}`
+                document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${this.amount}`
             }
         }
     }
@@ -81,7 +81,7 @@ class shopItem {
                 foodbowl = true;
                 document.getElementById('floppabowl').innerHTML = 'Full'
                 console.log(`Filled bowl (${this.amount})`)
-                document.getElementById('foodinv').innerHTML = `Floppa Food: ${this.amount}`
+                document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${this.amount}`
             }
             if(this.name == 'Scratching Post') {
                 money.cash = money.cash + 30;
@@ -194,16 +194,13 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
         money.click = money.click * 2;
         document.getElementById('scratchbuybtn').style.display = 'none';
     }
-    if(scratch.amount == 1) {
-
-    }
     Object.assign(food, {buy: function() {
         if(money.cash >= food.cost && floppa.alive == true) {
             food.amount = ++food.amount;
             money.cash = money.cash - food.cost;
             console.log(`Bought ${food.name} for ${food.cost}`)
             document.getElementById('cash').innerHTML = `Money: ${money.cash}`
-            document.getElementById('foodinv').innerHTML = `Floppa Food: ${food.amount}`
+            document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${food.amount}`
         }
     }})
     Object.assign(scratch, {buy: function() {
@@ -213,7 +210,7 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
             console.log(`Bought ${scratch.name} for ${scratch.cost}`)
             document.getElementById('cash').innerHTML = `Money: ${money.cash}`
             document.getElementById('scratchbuybtn').style.display = 'none';
-            document.getElementById('scratchinv').innerHTML = `Scratching Post: ${scratch.amount}`
+            document.getElementById('scratchinv').innerHTML = `Scratching Post ($75) - ${scratch.amount}`
         }
     }})
     Object.assign(coolhat, {buy: function() {
@@ -223,7 +220,7 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
             console.log(`Bought ${coolhat.name} for ${coolhat.cost}`)
             document.getElementById('cash').innerHTML = `Money: ${money.cash}`
             document.getElementById('coolhatbtn').style.display = 'none';
-            document.getElementById('coolhatinv').innerHTML = `Cool Hat: ${coolhat.amount}`
+            document.getElementById('coolhatinv').innerHTML = `Cool Hat ($250) - ${coolhat.amount}`
         }
     }})
     Object.assign(food, {use: function() {
@@ -232,7 +229,7 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
                 foodbowl = true;
                 document.getElementById('floppabowl').innerHTML = 'Full'
                 console.log(`Filled bowl (${this.amount})`)
-                document.getElementById('foodinv').innerHTML = `Floppa Food: ${this.amount}`
+                document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${this.amount}`
         }
     }})
     Object.assign(scratch, {use: function() {
