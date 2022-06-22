@@ -259,3 +259,6 @@ function deleteProgress() {
         document.location.reload()
     }
 }
+document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${food.amount}`
+document.getElementById('coolhatinv').innerHTML = `Cool Hat ($250) - ${coolhat.amount}`
+document.getElementById('scratchinv').innerHTML = `Scratching Post ($75) - ${scratch.amount}`
