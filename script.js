@@ -1,8 +1,7 @@
-console.log('sex gifs')
-console.log('cat girl rule 34')
 var money = {
     cash: 0,
-    db: true
+    db: true,
+    click: 1
 }
 
 var floppa = {
@@ -16,11 +15,12 @@ var foodbowl = true;
 
 
 function clickFloppa() {
-    if(floppa.alive == true) {
+    if(floppa.alive == true && money.db == true) {
         money.db = false;
-        money.cash = money.cash - 1000000000000000000000000000.9179389273;
+        money.cash = money.cash + money.click;
         document.getElementById('cash').innerHTML = `Money: ${money.cash}`
         console.log('click')
+        setTimeout(function() {money.db == true}, 0300)
     }
 }
 
@@ -145,7 +145,26 @@ setInterval(function() {
             document.getElementById('floppahappyimg').setAttribute('alt', 'Floppa is angry')
             document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is angry')
         }
-    }
+        if(floppa.mood == 0) {
+            floppa.alive = false;
+            document.getElementById('main').innerHTML = ''
+            var newelem = document.createElement('p')
+            newelem.innerHTML = 'your floppa fucking died'
+            document.getElementById('main').appendChild(newelem)
+            var newbtn = document.createElement('button')
+            newbtn.innerHTML = 'Restart'
+            document.getElementById('main').appendChild(newbtn)
+            newbtn.onclick = () => {
+                floppa.alive == true;
+                localStorage.removeItem('floppa')
+                floppa.hunger = 100
+                floppa.mood = 100
+                floppa.alive = true
+                document.location.reload()
+                return false;
+            }
+        
+       }
 }, 5000)
 
 // tips
@@ -257,6 +276,7 @@ function deleteProgress() {
     if(confirm('Delete Progress? This will reset everything.') == true) {
         localStorage.clear()
         document.location.reload()
+        return false;
     }
 }
 document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${food.amount}`
