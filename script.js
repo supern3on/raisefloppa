@@ -1,61 +1,4 @@
-var money = {
-    cash: 0,
-    db: true,
-    click: 1
-}
 
-var floppa = {
-    hunger: 100,
-    mood: 100,
-    petdb: true,
-    alive: true
-}
-
-var foodbowl = true;
-
-
-function clickFloppa() {
-    if(floppa.alive == true && money.db == true) {
-        money.db = false;
-        money.cash = money.cash + money.click;
-        document.getElementById('cash').innerHTML = `Money: ${money.cash}`
-        setTimeout(function() {money.db = true}, 0300)
-        console.log('click')
-    }
-}
-
-function petFloppa() {
-    if(floppa.alive == true && floppa.petdb == true && floppa.mood + 5 <= 100) {
-        if(floppa.mood <= 25 && floppa.mood + 5 >= 25) {
-            if(coolhat.amount == 1) {
-                money.click = money.click * 2;
-            }
-            document.getElementById('floppahappyimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppahappy.PNG')
-            document.getElementById('floppahappyimg').setAttribute('alt', 'Floppa is happy')
-            document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is happy')
-        }
-        console.log('pet')
-        floppa.petdb = false;
-        floppa.mood = floppa.mood + 5;
-        document.getElementById('mood').innerHTML = `Happiness: ${floppa.mood}`
-        setTimeout(function() {floppa.petdb = true}, 3000)
-    } else if(floppa.alive == true && floppa.petdb == true) {
-        console.log('pet')
-        floppa.petdb = false;
-        floppa.mood = 100;
-        document.getElementById('mood').innerHTML = `Happiness: ${floppa.mood}`
-        setTimeout(function() {floppa.petdb = true}, 3000)
-    }
-}
-
-class shopItem {
-    constructor(name, cost) {
-        this.name = name
-        this.cost = cost
-        this.amount = 0
-    }
-    buy() {
-        if(money.cash >= this.cost && floppa.alive == true) {
             this.amount = ++this.amount;
             money.cash = money.cash - this.cost;
             console.log(`Bought ${this.name} for ${this.cost}`)
@@ -144,53 +87,7 @@ setInterval(function() {
             document.getElementById('floppahappyimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppamad.PNG')
             document.getElementById('floppahappyimg').setAttribute('alt', 'Floppa is angry')
             document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is angry')
-        }
-    }
-}, 5000)
-
-// tips
-var i = 0;
-
-i = Math.floor(Math.random() * 3)
-
-if(document.getElementById('tip')) {
-    if(i == 0) {
-        document.getElementById('tip').innerHTML = 'Tip: Fill the bowl with Floppa Food to feed Floppa'
-    }
-    if(i == 1) {
-        document.getElementById('tip').innerHTML = 'Tip: Click Floppa for money'
-    }
-    if(i == 2) {
-        i == 0;
-        document.getElementById('tip').innerHTML = 'Tip: Everytime you do something it logs it to the console. Inspect elements > Console'
-    }
-}
-
-setInterval(function() {
-    i = Math.floor(Math.random() * 3)
-    if(document.getElementById('tip')) {
-        if(i == 0) {
-            document.getElementById('tip').innerHTML = 'Tip: Fill the bowl with Floppa Food to feed Floppa'
-        }
-        if(i == 1) {
-            document.getElementById('tip').innerHTML = 'Tip: Click Floppa for money'
-        }
-        if(i == 2) {
-            i == 0;
-            document.getElementById('tip').innerHTML = 'Tip: Everytime you do something it logs it to the console. Inspect elements > Console'
-        }
-    }
-}, 6000)
-
-if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorage.getItem('bowl') && localStorage.getItem('food') && localStorage.getItem('scratch') && localStorage.getItem('coolhat')) {
-    floppa = JSON.parse(localStorage.getItem('floppa'))
-    money = JSON.parse(localStorage.getItem('cash'))
-    foodbowl = JSON.parse(localStorage.getItem('bowl'))
-    food = JSON.parse(localStorage.getItem('food'))
-    scratch = JSON.parse(localStorage.getItem('scratch'))
-    coolhat = JSON.parse(localStorage.getItem('coolhat'))
-    if(coolhat.amount == 1) {
-        document.getElementById('coolhatbtn').style.display = 'none';
+ 
         money.click = money.click * 2;
         document.getElementById('scratchbuybtn').style.display = 'none';
     }
