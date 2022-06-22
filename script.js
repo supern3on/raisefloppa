@@ -19,8 +19,8 @@ function clickFloppa() {
         money.db = false;
         money.cash = money.cash + money.click;
         document.getElementById('cash').innerHTML = `Money: ${money.cash}`
-        console.log('click')
         setTimeout(function() {money.db == true}, 0300)
+        console.log('click')
     }
 }
 
