@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&d=swap');
+@media only screen and (max-width: 768px) {
+    /* mobile phone */
+    ul li {
+        list-style-type: none;
+        padding: 0px;
+    }
+    
+    body {
+        background-color: #2e3133;
+        font-family: 'Comic Neue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 22px;
+        color: #e6e6e6;
+    }
+    #floppahappyimg {
+        aspect-ratio: auto;
+        height: 500px;
+    }
+}
+
+a {
+    color: #adc4e6;
+    text-decoration: none;
+}
+
+button {
+    font-family: 'Comic Neue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+}
+
+fieldset {
+    border-color: #36393e;
+    border-style: solid;
+}
+
+@media only screen and (min-width: 768px) {
+    #floppahappyimg {
+        aspect-ratio: auto;
+        height: 585px;
+        float: right;
+        margin-top: 0px;
+    }
+}
