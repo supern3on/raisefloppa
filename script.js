@@ -143,28 +143,9 @@ setInterval(function() {
             }
             document.getElementById('floppahappyimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppamad.PNG')
             document.getElementById('floppahappyimg').setAttribute('alt', 'Floppa is angry')
-            document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is angry')
+            document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is angry')     
         }
-        if(floppa.mood == 0) {
-            floppa.alive = false;
-            document.getElementById('main').innerHTML = ''
-            var newelem = document.createElement('p')
-            newelem.innerHTML = 'your floppa fucking died'
-            document.getElementById('main').appendChild(newelem)
-            var newbtn = document.createElement('button')
-            newbtn.innerHTML = 'Restart'
-            document.getElementById('main').appendChild(newbtn)
-            newbtn.onclick = () => {
-                floppa.alive == true;
-                localStorage.removeItem('floppa')
-                floppa.hunger = 100
-                floppa.mood = 100
-                floppa.alive = true
-                document.location.reload()
-                return false;
-            }
-        
-       }
+    }
 }, 5000)
 
 // tips
