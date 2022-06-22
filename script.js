@@ -1,3 +1,4 @@
+
 var money = {
     cash: 0,
     db: true,
@@ -19,7 +20,7 @@ function clickFloppa() {
         money.db = false;
         money.cash = money.cash + money.click;
         document.getElementById('cash').innerHTML = `Money: ${money.cash}`
-        setTimeout(function() {money.db == true}, 0300)
+        setTimeout(function() {money.db = true}, 0300)
         console.log('click')
     }
 }
@@ -143,7 +144,7 @@ setInterval(function() {
             }
             document.getElementById('floppahappyimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppamad.PNG')
             document.getElementById('floppahappyimg').setAttribute('alt', 'Floppa is angry')
-            document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is angry')     
+            document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is angry')
         }
     }
 }, 5000)
@@ -257,7 +258,6 @@ function deleteProgress() {
     if(confirm('Delete Progress? This will reset everything.') == true) {
         localStorage.clear()
         document.location.reload()
-        return false;
     }
 }
 document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${food.amount}`
