@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css\interwebs.css">
+        <link rel="stylesheet" type="text/css" href="css\navbar.css">
+        <link rel="stylesheet" type="text/css" href="css\style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RAF but in a website (unofficial website)</title>
+    </head>
+    <body>
+        <header id="bar">
+            <h2 style="margin-top: 7px;margin-left: 5px;">Raise a Floppa</h2>
+            <ul style="padding-left: 0px;margin-top:4px;">
+                <li class="barli"><a href="https://www.roblox.com/games/9772878203/raise-a-floppa-2">Play RAF 2</a></li>
+                <li class="barli"><a href="https://www.roblox.com/users/5755777/profile">Original RAF Dev</a></li>
+            </ul>
+        </header>
+        <img id="floppahappyimg" src="https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppahappy.PNG" alt="Floppa is Happy" title="Floppa is Happy" />
+        <div id="main">
+            <button type="button" onclick="saveProgress()">Save Progress</button>
+            <button type="button" onclick="deleteProgress()">Delete Progress</button><br><br>
+            <p id="tip">Loading..</p>
+            <p id="cash">Loading..</p>
+            <button type="button" onclick="clickFloppa()">Click Floppa</button><br><br>
+            <strong>Floppa</strong>
+            <p>
+                <div id="hunger">Loading..</div>
+                <div id="mood">Loading..</div>
+            </p>
+            <button type="button" onclick="petFloppa()">Pet Floppa (+5 Mood)</button><br><br>
+            <strong>Bowl</strong>
+            <p id="floppabowl">Empty</p>
+            <button type="button" onclick="food.use()">Fill Bowl</button><br><br>
+            <!--flex box;the interwebs-->
+            <div id="interwebscontainer">
+                <div class="shopitembox">
+                    <strong>Floppa Food</strong><br><br>
+                    <img src="https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppafood.jpg" class="shopitemimg" alt="Floppa Food Image" title="Fill floppa bowl with food to feed floppa" />
+                    <button type="button" onclick="food.buy()">Purchase</button>
+                </div>
+                <div class="shopitembox">
+                    <strong>Scratching Post</strong><br><br>
+                    <img src="https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/scratchingpost.PNG" class="shopitemimg" alt="scratching post">
+                    <button type="button" id="scratchbuybtn" onclick="scratch.buy()">Purchase</button>
+                </div>
+                <div class="shopitembox">
+                    <strong>Cool Hat</strong><br><br>
+                    <img src="https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/coolhat.PNG" class="shopitemimg" alt="Cool hat" title="Double money" />
+                    <button type="button" id="coolhatbtn" onclick="coolhat.buy()">Purchase</button>
+                </div>
+            </div><br>
+            <fieldset>
+                <legend>Inventory</legend>
+                <p id="foodinv">Floppa Food: 0</p>
+                <p id="coolhatinv">Cool Hat: 0</p>
+                <p id="scratchinv">Scratching Post: 0</p>
+            </fieldset>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
