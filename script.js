@@ -1,3 +1,5 @@
+console.log('github.com/supern3on/raisefloppa')
+console.log('I fucking add milk')
 var money = {
     cash: 0,
     db: true,
