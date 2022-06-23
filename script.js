@@ -27,9 +27,6 @@ function clickFloppa() {
 function petFloppa() {
     if(floppa.alive == true && floppa.petdb == true && floppa.mood + 5 <= 100) {
         if(floppa.mood <= 25 && floppa.mood + 5 >= 25) {
-            if(coolhat.amount == 1) {
-                money.click = money.click * 2;
-            }
             document.getElementById('floppahappyimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppahappy.PNG')
             document.getElementById('floppahappyimg').setAttribute('alt', 'Floppa is happy')
             document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is happy')
@@ -64,11 +61,6 @@ class shopItem {
                 document.getElementById('scratchbuybtn').style.display = 'none';
                 document.getElementById('scratchinv').innerHTML = `Scratching Post ($75) - ${this.amount}`
             }
-            if(this.name == 'Cool Hat') {
-                money.click = money.click * 2;
-                document.getElementById('coolhatbtn').style.display = 'none';
-                document.getElementById('coolhatinv').innerHTML = `Cool Hat ($250) - ${this.amount}`
-            }
             if(this.name == 'Food') {
                 document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${this.amount}`
             }
@@ -94,7 +86,6 @@ class shopItem {
 
 var food = new shopItem('Food', 50)
 var scratch = new shopItem('Scratching Post', 75)
-var coolhat = new shopItem('Cool Hat', 250)
 
 setInterval(function() {
     if(floppa.alive == true) {
@@ -119,11 +110,7 @@ setInterval(function() {
             newbtn.innerHTML = 'Restart'
             document.getElementById('main').appendChild(newbtn)
             newbtn.onclick = () => {
-                floppa.alive == true;
-                localStorage.removeItem('floppa')
-                floppa.hunger = 100
-                floppa.mood = 100
-                floppa.alive = true
+                localStorage.clear()
                 document.location.reload()
                 return false;
             }
@@ -188,7 +175,6 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
     foodbowl = JSON.parse(localStorage.getItem('bowl'))
     food = JSON.parse(localStorage.getItem('food'))
     scratch = JSON.parse(localStorage.getItem('scratch'))
-    coolhat = JSON.parse(localStorage.getItem('coolhat'))
     Object.assign(food, {buy: function() {
         if(money.cash >= food.cost && floppa.alive == true) {
             food.amount = ++food.amount;
@@ -206,16 +192,6 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
             document.getElementById('cash').innerHTML = `Money: ${money.cash}`
             document.getElementById('scratchbuybtn').style.display = 'none';
             document.getElementById('scratchinv').innerHTML = `Scratching Post ($75) - ${scratch.amount}`
-        }
-    }})
-    Object.assign(coolhat, {buy: function() {
-        if(money.cash >= coolhat.cost && floppa.alive == true) {
-            coolhat.amount = ++coolhat.amount;
-            money.cash = money.cash - coolhat.cost;
-            console.log(`Bought ${coolhat.name} for ${coolhat.cost}`)
-            document.getElementById('cash').innerHTML = `Money: ${money.cash}`
-            document.getElementById('coolhatbtn').style.display = 'none';
-            document.getElementById('coolhatinv').innerHTML = `Cool Hat ($250) - ${coolhat.amount}`
         }
     }})
     Object.assign(food, {use: function() {
@@ -244,7 +220,6 @@ function saveProgress() {
     localStorage.setItem('bowl', JSON.stringify(foodbowl))
     localStorage.setItem('food', JSON.stringify(food))
     localStorage.setItem('scratch', JSON.stringify(scratch))
-    localStorage.setItem('coolhat', JSON.stringify(coolhat))
     console.log('Saved')
 }
 
@@ -252,14 +227,12 @@ function deleteProgress() {
     if(confirm('Delete Progress? This will reset everything.') == true) {
         localStorage.clear()
         document.location.reload()
+        return false;
     }
 }
 document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${food.amount}`
 document.getElementById('coolhatinv').innerHTML = `Cool Hat ($250) - ${coolhat.amount}`
 document.getElementById('scratchinv').innerHTML = `Scratching Post ($75) - ${scratch.amount}`
-if(coolhat.amount >= 1) {
-    document.getElementById('coolhatbtn').style.display = 'none';
-}
 if(scratch.amount >= 1) {
     document.getElementById('scratchbuybtn').style.display = 'none';
 }
