@@ -193,6 +193,8 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
     if(coolhat.amount == 1) {
         document.getElementById('coolhatbtn').style.display = 'none';
         money.click = money.click * 2;
+    }
+    if(scratch.amount == 1) {
         document.getElementById('scratchbuybtn').style.display = 'none';
     }
     Object.assign(food, {buy: function() {
