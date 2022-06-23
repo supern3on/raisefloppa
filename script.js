@@ -163,7 +163,7 @@ if(document.getElementById('tip')) {
     }
     if(i == 2) {
         i == 0;
-        document.getElementById('tip').innerHTML = 'Tip: Everytime you do something it logs it to the console. Inspect elements > Console'
+        document.getElementById('tip').innerHTML = "Tip: Keep floppa's happiness to more than 25"
     }
 }
 
@@ -178,7 +178,7 @@ setInterval(function() {
         }
         if(i == 2) {
             i == 0;
-            document.getElementById('tip').innerHTML = 'Tip: Everytime you do something it logs it to the console. Inspect elements > Console'
+            document.getElementById('tip').innerHTML = "Tip: Keep floppa's happiness to more than 25"
         }
     }
 }, 6000)
