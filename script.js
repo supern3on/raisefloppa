@@ -232,6 +232,7 @@ function deleteProgress() {
 }
 document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${food.amount}`
 document.getElementById('scratchinv').innerHTML = `Scratching Post ($75) - ${scratch.amount}`
+document.getElementById('cash').innerHTML = `Money: ${money.cash}`
 if(scratch.amount >= 1) {
     document.getElementById('scratchbuybtn').style.display = 'none';
 }
