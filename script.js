@@ -1,4 +1,3 @@
-
 var money = {
     cash: 0,
     db: true,
@@ -190,13 +189,6 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
     food = JSON.parse(localStorage.getItem('food'))
     scratch = JSON.parse(localStorage.getItem('scratch'))
     coolhat = JSON.parse(localStorage.getItem('coolhat'))
-    if(coolhat.amount == 1) {
-        document.getElementById('coolhatbtn').style.display = 'none';
-        money.click = money.click * 2;
-    }
-    if(scratch.amount == 1) {
-        document.getElementById('scratchbuybtn').style.display = 'none';
-    }
     Object.assign(food, {buy: function() {
         if(money.cash >= food.cost && floppa.alive == true) {
             food.amount = ++food.amount;
@@ -265,3 +257,9 @@ function deleteProgress() {
 document.getElementById('foodinv').innerHTML = `Floppa Food ($50) - ${food.amount}`
 document.getElementById('coolhatinv').innerHTML = `Cool Hat ($250) - ${coolhat.amount}`
 document.getElementById('scratchinv').innerHTML = `Scratching Post ($75) - ${scratch.amount}`
+if(coolhat.amount >= 1) {
+    document.getElementById('coolhatbtn').style.display = 'none';
+}
+if(scratch.amount >= 1) {
+    document.getElementById('scratchbuybtn').style.display = 'none';
+}
