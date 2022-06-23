@@ -169,7 +169,7 @@ setInterval(function() {
     }
 }, 6000)
 
-if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorage.getItem('bowl') && localStorage.getItem('food') && localStorage.getItem('scratch') && localStorage.getItem('coolhat')) {
+if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorage.getItem('bowl') && localStorage.getItem('food') && localStorage.getItem('scratch')) {
     floppa = JSON.parse(localStorage.getItem('floppa'))
     money = JSON.parse(localStorage.getItem('cash'))
     foodbowl = JSON.parse(localStorage.getItem('bowl'))
