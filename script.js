@@ -1,8 +1,9 @@
 console.log('github.com/supern3on/raisefloppa')
-console.log('I fucking add milk')
+let bool = true;
 var money = {
     cash: 0,
     db: true,
+    clicked: 0,
     click: 1
 }
 
@@ -15,12 +16,28 @@ var floppa = {
 
 var foodbowl = true;
 
-
 function clickFloppa() {
     if(floppa.alive == true && money.db == true) {
         money.db = false;
-        money.cash = money.cash + money.click;
-        document.getElementById('cash').innerHTML = `Money: ${money.cash}`
+        money.clicked += money.click;
+        if(bool == true) {
+            bool = false;
+            var newbtn = document.createElement('button');
+            var newbr = document.createElement('br');
+            newbtn.innerHTML = 'Collect Cash'
+            document.getElementById('main').appendChild(newbtn)
+            document.getElementById('main').appendChild(newbr)
+            document.getElementById('main').insertBefore(newbtn, document.getElementById('floppatitle'))
+            document.getElementById('main').insertBefore(newbr, document.getElementById('floppatitle'))
+            newbtn.onclick = function() {
+                money.cash += money.clicked;
+                money.clicked = 0;
+                newbtn.remove()
+                newbr.remove()
+                document.getElementById('cash').innerHTML = `Money: ${money.cash}`;
+                bool = true;
+            }
+        }
         setTimeout(function() {money.db = true}, 0300)
         console.log('click')
     }
