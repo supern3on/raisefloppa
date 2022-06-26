@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&d=swap');
+* {
+    touch-action: manipulation;
+}
+
 @media only screen and (max-width: 768px) {
     /* mobile phone */
     ul li {
