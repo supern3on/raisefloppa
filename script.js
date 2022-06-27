@@ -46,9 +46,9 @@ function clickFloppa() {
 function petFloppa() {
     if(floppa.alive == true && floppa.petdb == true && floppa.mood + 5 <= 100) {
         if(floppa.mood <= 25 && floppa.mood + 5 >= 25) {
-            document.getElementById('floppahappyimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppahappy.PNG')
-            document.getElementById('floppahappyimg').setAttribute('alt', 'Floppa is happy')
-            document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is happy')
+            document.getElementById('floppaimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppahappy.PNG')
+            document.getElementById('floppaimg').setAttribute('alt', 'Floppa is happy')
+            document.getElementById('floppaimg').setAttribute('title', 'Floppa is happy')
         }
         console.log('pet')
         floppa.petdb = false;
@@ -147,9 +147,9 @@ setInterval(function() {
             if(money.click > 1) {
                 money.click = money.click / 2;
             }
-            document.getElementById('floppahappyimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppamad.PNG')
-            document.getElementById('floppahappyimg').setAttribute('alt', 'Floppa is angry')
-            document.getElementById('floppahappyimg').setAttribute('title', 'Floppa is angry')
+            document.getElementById('floppaimg').setAttribute('src', 'https://raw.githubusercontent.com/supern3on/raisefloppa/main/img/floppamad.PNG')
+            document.getElementById('floppaimg').setAttribute('alt', 'Floppa is angry')
+            document.getElementById('floppaimg').setAttribute('title', 'Floppa is angry')
         }
     }
 }, 5000)
@@ -194,6 +194,24 @@ if(localStorage.getItem('floppa') && localStorage.getItem('cash') && localStorag
     foodbowl = JSON.parse(localStorage.getItem('bowl'))
     food = JSON.parse(localStorage.getItem('food'))
     scratch = JSON.parse(localStorage.getItem('scratch'))
+    if(money.clicked > 0 && bool == true) {
+        bool = false;
+        var newbtn = document.createElement('button')
+        newbtn.innerHTML = 'Collect Cash'
+        var newbr = document.createElement('br')
+        document.getElementById('main').appendChild(newbtn)
+        document.getElementById('main').appendChild(newbr)
+        document.getElementById('main').insertBefore(newbtn, document.getElementById('floppatitle'))
+        document.getElementById('main').insertBefore(newbr, document.getElementById('floppatitle'))
+        newbtn.onclick = function() {
+            newbtn.remove()
+            newbr.remove()
+            money.cash += money.clicked;
+            money.clicked = 0;
+            bool = true;
+            document.getElementById('cash').innerHTML = `Money: ${money.cash}`
+        }
+    }
     Object.assign(food, {buy: function() {
         if(money.cash >= food.cost && floppa.alive == true) {
             food.amount = ++food.amount;
