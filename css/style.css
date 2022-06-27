@@ -40,7 +40,7 @@ fieldset {
 }
 
 @media only screen and (min-width: 768px) {
-    #floppahappyimg {
+    #floppaimg {
         aspect-ratio: auto;
         height: 585px;
         float: right;
